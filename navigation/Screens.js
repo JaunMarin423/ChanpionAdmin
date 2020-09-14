@@ -9,6 +9,7 @@ import { Block } from "galio-framework";
 
 // screens
 import Home from "../screens/Home";
+import Sala from "../screens/Sala";
 import Onboarding from "../screens/Onboarding";
 import Pro from "../screens/Pro";
 import Profile from "../screens/Profile";
@@ -137,6 +138,8 @@ function ProfileStack(props) {
   );
 }
 
+
+
 function HomeStack(props) {
   return (
     <Stack.Navigator mode="card" headerMode="screen">
@@ -147,6 +150,46 @@ function HomeStack(props) {
           header: ({ navigation, scene }) => (
             <Header
               title="Home"
+              search
+              options
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          cardStyle: { backgroundColor: "#F8F9FE" }
+        }}
+      />
+      <Stack.Screen
+        name="Pro"
+        component={Pro}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title=""
+              back
+              white
+              transparent
+              navigation={navigation}
+              scene={scene}
+            />
+          ),
+          headerTransparent: true
+        }}
+      />
+    </Stack.Navigator>
+  );
+}
+
+function SalaStack(props) {
+  return (
+    <Stack.Navigator mode="card" headerMode="screen">
+      <Stack.Screen
+        name="Sala"
+        component={Sala}
+        options={{
+          header: ({ navigation, scene }) => (
+            <Header
+              title="Sala"
               search
               options
               navigation={navigation}
@@ -224,6 +267,7 @@ function AppStack(props) {
       initialRouteName="Home"
     >
       <Drawer.Screen name="Home" component={HomeStack} />
+      <Drawer.Screen name="Sala" component={SalaStack} />
       <Drawer.Screen name="Profile" component={ProfileStack} />
       <Drawer.Screen name="Account" component={Register} />
       <Drawer.Screen name="Elements" component={ElementsStack} />

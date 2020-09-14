@@ -13,7 +13,8 @@ import { DrawerItem as DrawerCustomItem } from '../components';
 function CustomDrawerContent({ drawerPosition, navigation, profile, focused, state, ...rest }) {
   const insets = useSafeArea();
   const screens = [
-    "Home", 
+    "Home",
+    "Sala",
     "Profile",
     "Account",
     "Elements",
